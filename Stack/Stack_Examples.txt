@@ -1,0 +1,93 @@
+## Real-Life Applications of Stack Data Structure (LIFO)
+
+Stacks power every modern application you use daily. Here are the top 10 real-world uses:
+
+1. Browser Back/Forward Buttons 
+
+User clicks: Home → Products → iPhone → Back → Products
+Stack:        [Home, Products, iPhone] ← Top (current page)
+Back button:  pop() → Products
+Forward:      push() previous states
+
+Your FastAPI Swagger UI uses this exact pattern!
+
+2. Undo/Redo in Editors (VS Code, Photoshop) 
+
+Type: "Hello World" → Ctrl+Z → "Hello" → Ctrl+Z → "He"
+Stack: ['H','e','l','l','o',' ','W','o','r','l','d']
+Undo:  pop() removes last character
+Redo:  push() restores
+
+
+3. Function Call Stack (EVERY Program) 
+
+main() → create_product() → get_db() → connect()
+Stack:  [main, create_product, get_db, connect] ← Top
+return: pop() → get_db → create_product → main
+
+Your FastAPI async functions use this automatically!
+
+4. Expression Evaluation (Calculators) 
+
+"3 + 4 * 2" → Convert to Postfix: "3 4 2 * +"
+Stack processes: push(3), push(4), push(2), pop* → 8, pop+ → 11
+
+Your product price calculations could use this!
+
+5. Parentheses Matching (Code/Syntax) 🔍
+
+if (x > 0) { console.log("Positive"); }
+Stack: ['(' , '{'] → Match with ')', '}' → Valid!
+
+JSON validators, Python linters use stacks
+
+6. Maze Solving & Backtracking 
+
+Path: Room1 → Room2 → DeadEnd → Backtrack → Room3 → Exit
+Stack stores: [Room1, Room2] ← Try alternatives
+
+Chess engines, puzzle games
+
+7. Call Center Queue 
+
+Caller1 → Caller2 → Caller3 ← Agent serves LAST caller first
+Stack: [Caller1, Caller2, Caller3] ← LIFO
+
+
+8. History in Apps (Git, Command Line) 
+
+git: commit1 → commit2 → commit3 → git checkout HEAD~1
+Stack pops to previous commit
+
+
+9. Recursion (Tree Traversal) 
+
+def print_tree(node):
+    print(node.value)           # Visit
+    for child in node.children: # Stack frame per child
+        print_tree(child)       # Recursive call → push frame
+
+Your MongoDB category tree queries!
+
+10. Your FastAPI Request Processing 
+
+Request → Middleware → Route → Service → Repository → DB
+Stack unwinds on response: DB → Repo → Service → Route → JSON
+
+
+Stack vs Queue Comparison:
+
+Stack (LIFO): Undo, Back button, Function calls
+Queue (FIFO): Print jobs, Customer service, Kafka messages
+
+
+Your E-commerce Stack Usage:
+
+Undo "Add to Cart" → Stack pops last item
+ Browser Back → Stack navigates product pages  
+ API Request stack → FastAPI middleware processing
+ Price calculation → Expression stack
+ Product search history → Stack remembers filters
+
+
+Stacks are invisible but power EVERY app you use! From your FastAPI server to browser tabs 
